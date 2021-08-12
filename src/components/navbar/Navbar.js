@@ -4,11 +4,13 @@ import './navbar.scss'
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="container">
-        <NavLink to="/cart">
+        <i className="bi bi-shop-window"/>
+        <NavLink to="/cart" activeClassName="selected">
           <i className="bi bi-cart3"/>
         </NavLink>
-      </div>
+        <NavLink exact to="/" activeClassName="selected">
+          <i className="bi bi-grid"/>
+        </NavLink>
     </nav>
   )
 }

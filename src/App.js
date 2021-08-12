@@ -7,12 +7,8 @@ const App = () => {
       <Navbar />
       <div className="container">
         <Switch>
-          <Route path="/cart">
-            <Cart/>
-          </Route>
-          <Route path="/">
-            <ProductCatalogue/>
-          </Route>
+          <Route path="/" component={ProductCatalogue} exact />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </div>
     </BrowserRouter>
