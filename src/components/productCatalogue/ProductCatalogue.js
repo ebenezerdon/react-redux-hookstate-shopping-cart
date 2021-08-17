@@ -1,7 +1,8 @@
 import './productCatalogue.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import _ from 'lodash'
 import { cartActions } from '../cart'
 import productList from '../../data/productList'
-import { useDispatch, useSelector } from 'react-redux'
 
 const ProductCatalogue = () => {
   const cartState = useSelector(state => state.cart)
@@ -37,11 +38,16 @@ const ProductCatalogue = () => {
                       onClick={() => removeFromCart(product.id)}
                     > -
                     </button>
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => addToCart(product.id)}
-                    > Add to cart
-                    </button>
+                    {cartState.productIds.includes(product.id) &&
+                      <button className="btn btn-primary cursor-default">
+                        {_.countBy(cartState.productIds)[product.id]} in cart
+                      </button>
+                    }
+                    {!cartState.productIds.includes(product.id) &&
+                      <button className="btn btn-primary" onClick={() => addToCart(product.id)}>
+                        Add to cart
+                      </button>
+                    }
                     <button
                       className="btn qty-left"
                       onClick={() => addToCart(product.id)}
