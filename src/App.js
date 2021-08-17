@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Cart, Navbar, ProductCatalogue } from './components'
+import './index.scss'
 
 const App = () => {
   return (
