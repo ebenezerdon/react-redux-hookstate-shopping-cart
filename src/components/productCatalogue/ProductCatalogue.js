@@ -33,10 +33,8 @@ const ProductCatalogue = () => {
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">{product.price.symbol}{product.price.value}</p>
                   <div className="qty-buttons">
-                    <button
-                      className="btn qty-right"
-                      onClick={() => removeFromCart(product.id)}
-                    > -
+                    <button className="btn qty-right" onClick={() => removeFromCart(product.id)}>
+                      -
                     </button>
                     {cartState.productIds.includes(product.id) &&
                       <button className="btn btn-primary cursor-default">
@@ -48,10 +46,8 @@ const ProductCatalogue = () => {
                         Add to cart
                       </button>
                     }
-                    <button
-                      className="btn qty-left"
-                      onClick={() => addToCart(product.id)}
-                    > +
+                    <button className="btn qty-left" onClick={() => addToCart(product.id)}>
+                      +
                     </button>
                   </div>
                 </div>
