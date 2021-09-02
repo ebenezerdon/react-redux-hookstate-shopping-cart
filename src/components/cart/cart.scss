@@ -50,10 +50,12 @@
         position: relative;
         bottom: 3.1em;
         right: 1.8em;
+        margin-bottom: 0;
       }
 
       .remove-button {
         margin-left: 2rem;
+        margin-top: 0;
       }
 
       .item-price {
@@ -79,6 +81,8 @@
   }
 
   .qty-buttons {
+    margin-bottom: 3rem;
+
     .btn {
       margin: 0 1rem;
     }
