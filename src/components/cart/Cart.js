@@ -1,13 +1,17 @@
+import { useSelector } from 'react-redux'
 import './cart.scss'
 import photoUrlTest from '../../data/images/products/bubbles-gumball-apron-black.jpg'
 
 const Cart = () => {
+  const cartState = useSelector(state => state.cart)
+  const noOfItemsInCart = new Set(cartState.productIds).size
+  
   return (
     <div className="cart">
-      <h3 className="header">Cart (2 items)</h3>
+      <h3 className="header">Cart ({noOfItemsInCart} items)</h3>
       <div className="row">
         <div className="item-image col-lg-3 col-sm-2">
-          <img src={photoUrlTest} alt="product-image" />
+          <img src={photoUrlTest} alt="product" />
         </div>
           <div className="item-info col-lg-7 col-sm-5">
             <h4>Mens Casual Premium Slim Fit T-Shirts</h4>
