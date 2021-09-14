@@ -9,8 +9,9 @@ const slice = createSlice({
     },
     removeFromCart: (state, action) => {
       const indexOfId = state.productIds.indexOf(action.payload)
-      console.log('====>', indexOfId)
-      state.productIds.splice(indexOfId, 1)
+      if (indexOfId >= 0) {
+        state.productIds.splice(indexOfId, 1)
+      }
     }
   }
 })
