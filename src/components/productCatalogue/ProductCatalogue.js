@@ -1,5 +1,6 @@
 import './productCatalogue.scss'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 import _ from 'lodash'
 import { cartActions } from '../cart'
 import productList from '../../data/productList'
@@ -10,17 +11,17 @@ const ProductCatalogue = () => {
 
   const addToCart = productId => {
     dispatch(cartActions.addToCart(productId))
-    console.log('====>', cartState)
+    if (!cartState.productIds.includes(productId)) {
+      toast.info('Product has been added to cart')
+    }
   }
 
   const removeFromCart = productId => {
     dispatch(cartActions.removeFromCart(productId))
-    console.log('====>', cartState)
   }
 
   return (
     <div className="product-catalogue">
-      {/*<h1>Product Catalogue</h1>*/}
       <div className="row">
         {productList.map((product, index) => {
             return (
