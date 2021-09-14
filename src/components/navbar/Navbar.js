@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { Slide, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './navbar.scss'
 
 const Navbar = () => {
@@ -16,6 +18,13 @@ const Navbar = () => {
       <NavLink exact to="/" activeClassName="selected" title="products">
         <i className="bi bi-grid"/>
       </NavLink>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        theme="dark"
+        transition={Slide}
+        hideProgressBar={true}
+      />
     </nav>
   )
 }
