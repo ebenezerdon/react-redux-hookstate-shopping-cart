@@ -18,6 +18,9 @@ const ProductCatalogue = () => {
 
   const removeFromCart = productId => {
     dispatch(cartActions.removeFromCart(productId))
+    if (_.countBy(cartState.productIds)[productId] === 1) {
+      toast.info('Product has been removed from cart')
+    }
   }
 
   return (
