@@ -4,6 +4,7 @@ import './cart.scss'
 import { cartActions } from './slice'
 import productList from '../../data/productList'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
   const cartState = useSelector(state => state.cart)
@@ -71,7 +72,9 @@ const Cart = () => {
         )}
         <footer className="text-center">
           <p className="total-price">Total Price: <span>${totalPrice}</span></p>
-          <button className="btn back-button">CONTINUE SHOPPING</button>
+          <Link to="/" className="btn back-button">
+            CONTINUE SHOPPING
+          </Link>
           <button className="btn btn-primary">CHECKOUT</button>
         </footer>
       </div>
@@ -81,7 +84,9 @@ const Cart = () => {
         <i className="bi bi-cart3"/>
         <p>Your cart is empty.</p>
         <p>You have not added any item to your cart.</p>
-        <button className="btn btn-primary">Start Shopping</button>
+        <Link to="/" className="btn btn-primary">
+          Start Shopping
+        </Link>
       </div>
       }
     </div>
