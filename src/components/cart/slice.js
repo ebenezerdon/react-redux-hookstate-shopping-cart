@@ -12,6 +12,9 @@ const slice = createSlice({
       if (indexOfId >= 0) {
         state.productIds.splice(indexOfId, 1)
       }
+    },
+    clearInCart: (state, action) => {
+      state.productIds = state.productIds.filter(id => id !== action.payload)
     }
   }
 })

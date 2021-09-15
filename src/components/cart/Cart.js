@@ -25,6 +25,11 @@ const Cart = () => {
     }
   }
 
+  const clearInCart = productId => {
+    dispatch(cartActions.clearInCart(productId))
+    toast.info('Product has been removed from cart')
+  }
+
   const productPrice = cartProducts.map(
     product => product.price.value * _.countBy(cartState.productIds)[product.id]
   )
@@ -34,7 +39,7 @@ const Cart = () => {
   return (
     <div className="cart">
       {cartProducts.length >= 1 &&
-      <div className="cart-product">
+        <div className="cart-product">
         <h3 className="header">Cart ({cartProducts.length} items)</h3>
         {cartProducts?.map(product =>
           <div key={product.id} className="row">
@@ -44,7 +49,10 @@ const Cart = () => {
             <div className="item-info col-lg-7 col-sm-5">
               <h4>{product.name}</h4>
               <p className="text-truncate">{product.detail}</p>
-              <button className="btn btn-primary me-md-2 remove-button">
+              <button
+                className="btn btn-primary me-md-2 remove-button"
+                onClick={() => clearInCart(product.id)}
+              >
                 <i className="bi bi-trash-fill"/> Remove Item
               </button>
             </div>
@@ -72,22 +80,20 @@ const Cart = () => {
         )}
         <footer className="text-center">
           <p className="total-price">Total Price: <span>${totalPrice}</span></p>
-          <Link to="/" className="btn back-button">
-            CONTINUE SHOPPING
-          </Link>
+          <Link to="/" className="btn back-button">CONTINUE SHOPPING</Link>
           <button className="btn btn-primary">CHECKOUT</button>
         </footer>
       </div>
       }
       {cartProducts.length < 1 &&
-      <div className="text-center empty-cart">
-        <i className="bi bi-cart3"/>
-        <p>Your cart is empty.</p>
-        <p>You have not added any item to your cart.</p>
-        <Link to="/" className="btn btn-primary">
-          Start Shopping
-        </Link>
-      </div>
+        <div className="text-center empty-cart">
+          <i className="bi bi-cart3"/>
+          <p>Your cart is empty.</p>
+          <p>You have not added any item to your cart.</p>
+          <Link to="/" className="btn btn-primary">
+            Start Shopping
+          </Link>
+        </div>
       }
     </div>
   )
