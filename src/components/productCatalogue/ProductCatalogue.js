@@ -27,36 +27,36 @@ const ProductCatalogue = () => {
     <div className="product-catalogue">
       <div className="row">
         {productList.map((product, index) => {
-            return (
-              <div className="card col-sm-3" key={index}>
-                <img className="card-img-top"
-                     src={product.imageUrl?.default || product.imageUrl}
-                     alt="Card cap"
-                />
-                <div className="card-body text-center">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.price.symbol}{product.price.value}</p>
-                  <div className="qty-buttons">
-                    <button className="btn qty-right" onClick={() => removeFromCart(product.id)}>
-                      -
+          return (
+            <div className="card col-sm-3 col-md-push-1 col-sm-push-1" key={index}>
+              <img className="card-img-top"
+                   src={product.imageUrl?.default || product.imageUrl}
+                   alt="Card cap"
+              />
+              <div className="card-body text-center">
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text">{product.price.symbol}{product.price.value}</p>
+                <div className="qty-buttons">
+                  <button className="btn qty-right" onClick={() => removeFromCart(product.id)}>
+                    -
+                  </button>
+                  {cartState.productIds.includes(product.id) &&
+                    <button className="btn btn-primary cursor-default">
+                      {_.countBy(cartState.productIds)[product.id]} in cart
                     </button>
-                    {cartState.productIds.includes(product.id) &&
-                      <button className="btn btn-primary cursor-default">
-                        {_.countBy(cartState.productIds)[product.id]} in cart
-                      </button>
-                    }
-                    {!cartState.productIds.includes(product.id) &&
-                      <button className="btn btn-primary" onClick={() => addToCart(product.id)}>
-                        Add to cart
-                      </button>
-                    }
-                    <button className="btn qty-left" onClick={() => addToCart(product.id)}>
-                      +
+                  }
+                  {!cartState.productIds.includes(product.id) &&
+                    <button className="btn btn-primary" onClick={() => addToCart(product.id)}>
+                      Add to cart
                     </button>
-                  </div>
+                  }
+                  <button className="btn qty-left" onClick={() => addToCart(product.id)}>
+                    +
+                  </button>
                 </div>
-              </div>)
-          }
+              </div>
+            </div>
+          )}
         )}
       </div>
     </div>
