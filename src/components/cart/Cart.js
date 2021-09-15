@@ -81,7 +81,7 @@ const Cart = () => {
         <footer className="text-center">
           <p className="total-price">Total Price: <span>${totalPrice}</span></p>
           <Link to="/" className="btn back-button">CONTINUE SHOPPING</Link>
-          <button className="btn btn-primary">CHECKOUT</button>
+          <Link to="/checkout" className="btn btn-primary">CHECKOUT</Link>
         </footer>
       </div>
       }

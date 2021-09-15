@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Cart, Navbar, ProductCatalogue } from './components'
+import { Cart, Navbar, ProductCatalogue, Checkout } from './components'
 import './index.scss'
 
 const App = () => {
@@ -10,6 +10,7 @@ const App = () => {
         <Switch>
           <Route path="/" component={ProductCatalogue} exact />
           <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
         </Switch>
       </div>
     </BrowserRouter>
