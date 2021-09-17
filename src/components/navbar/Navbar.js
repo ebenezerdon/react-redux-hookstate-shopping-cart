@@ -10,7 +10,9 @@ const Navbar = () => {
   
   return (
     <nav className="navbar">
-      <i className="bi bi-shop-window"/>
+      <NavLink exact to="/">
+        <i className="bi bi-shop-window"/>
+      </NavLink>
       <NavLink to="/cart" activeClassName="selected" title="cart" className="link">
         <i className="bi bi-cart3"/>
         <sup className="cart-number">{noOfItemsInCart}</sup>

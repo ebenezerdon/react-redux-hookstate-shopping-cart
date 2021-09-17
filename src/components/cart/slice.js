@@ -15,6 +15,9 @@ const slice = createSlice({
     },
     clearInCart: (state, action) => {
       state.productIds = state.productIds.filter(id => id !== action.payload)
+    },
+    clearAllItems: state => {
+      state.productIds = []
     }
   }
 })
