@@ -7,13 +7,12 @@ import { toast } from 'react-toastify'
 import { Link, useHistory } from 'react-router-dom'
 
 const Cart = () => {
-  const cartState = useSelector(state => state.cart)
+  const { productIds: cartProductIds } = useSelector(state => state.cart)
   const dispatch = useDispatch()
   const history = useHistory()
-  const uniqueCartProductIds = new Set(cartState.productIds)
-  const arrayOfCartProductIds = [...uniqueCartProductIds]
+  const uniqueProductIds = new Set(cartProductIds)
 
-  const cartProducts = productList.filter(product => arrayOfCartProductIds.includes(product.id))
+  const cartProducts = productList.filter(product => [...uniqueProductIds].includes(product.id))
 
   const addToCart = productId => {
     dispatch(cartActions.addToCart(productId))
@@ -21,7 +20,7 @@ const Cart = () => {
 
   const removeFromCart = productId => {
     dispatch(cartActions.removeFromCart(productId))
-    if (lodash.countBy(cartState.productIds)[productId] === 1) {
+    if (lodash.countBy(cartProductIds)[productId] === 1) {
       toast.info('Product has been removed from cart')
     }
   }
@@ -37,7 +36,7 @@ const Cart = () => {
   }
 
   const productPriceList = cartProducts.map(
-    product => product.price.value * lodash.countBy(cartState.productIds)[product.id]
+    product => product.price.value * lodash.countBy(cartProductIds)[product.id]
   )
 
   const totalPrice = productPriceList.reduce((firstValue, secondValue) => firstValue + secondValue, 0)
@@ -69,7 +68,7 @@ const Cart = () => {
                   >
                     -
                   </button>
-                  <span>{lodash.countBy(cartState.productIds)[product.id]}</span>
+                  <span>{lodash.countBy(cartProductIds)[product.id]}</span>
                   <button className="btn btn-primary qty-right"
                           onClick={() => addToCart(product.id)}
                   >
@@ -78,7 +77,7 @@ const Cart = () => {
                 </div>
                 <p className="item-price">Price:
                   <span>{product.price.symbol}
-                    {product.price.value * lodash.countBy(cartState.productIds)[product.id]}
+                    {product.price.value * lodash.countBy(cartProductIds)[product.id]}
                     </span>
                 </p>
               </div>
