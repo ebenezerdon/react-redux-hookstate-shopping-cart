@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import _ from 'lodash'
+import lodash from 'lodash'
 import './cart.scss'
 import { cartActions } from './slice'
 import productList from '../../data/productList'
@@ -10,9 +10,10 @@ const Cart = () => {
   const cartState = useSelector(state => state.cart)
   const dispatch = useDispatch()
   const history = useHistory()
-  const cartProductIds = new Set(cartState.productIds)
+  const uniqueCartProductIds = new Set(cartState.productIds)
+  const arrayOfCartProductIds = [...uniqueCartProductIds]
 
-  const cartProducts = productList.filter(product => cartProductIds.includes(product.id))
+  const cartProducts = productList.filter(product => arrayOfCartProductIds.includes(product.id))
 
   const addToCart = productId => {
     dispatch(cartActions.addToCart(productId))
@@ -20,7 +21,7 @@ const Cart = () => {
 
   const removeFromCart = productId => {
     dispatch(cartActions.removeFromCart(productId))
-    if (_.countBy(cartState.productIds)[productId] === 1) {
+    if (lodash.countBy(cartState.productIds)[productId] === 1) {
       toast.info('Product has been removed from cart')
     }
   }
@@ -35,11 +36,11 @@ const Cart = () => {
     history.push('/checkout')
   }
 
-  const productPrice = cartProducts.map(
-    product => product.price.value * _.countBy(cartState.productIds)[product.id]
+  const productPriceList = cartProducts.map(
+    product => product.price.value * lodash.countBy(cartState.productIds)[product.id]
   )
 
-  const totalPrice = productPrice.reduce((firstValue, secondValue) => firstValue + secondValue, 0)
+  const totalPrice = productPriceList.reduce((firstValue, secondValue) => firstValue + secondValue, 0)
 
   return (
     <div className="cart">
@@ -68,7 +69,7 @@ const Cart = () => {
                   >
                     -
                   </button>
-                  <span>{_.countBy(cartState.productIds)[product.id]}</span>
+                  <span>{lodash.countBy(cartState.productIds)[product.id]}</span>
                   <button className="btn btn-primary qty-right"
                           onClick={() => addToCart(product.id)}
                   >
@@ -77,7 +78,7 @@ const Cart = () => {
                 </div>
                 <p className="item-price">Price:
                   <span>{product.price.symbol}
-                    {product.price.value * _.countBy(cartState.productIds)[product.id]}
+                    {product.price.value * lodash.countBy(cartState.productIds)[product.id]}
                     </span>
                 </p>
               </div>
