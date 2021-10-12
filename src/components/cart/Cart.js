@@ -10,8 +10,7 @@ const Cart = () => {
   const cartState = useSelector(state => state.cart)
   const dispatch = useDispatch()
   const history = useHistory()
-  const set = new Set(cartState.productIds)
-  const cartProductIds = [...set]
+  const cartProductIds = new Set(cartState.productIds)
 
   const cartProducts = productList.filter(product => cartProductIds.includes(product.id))
 
