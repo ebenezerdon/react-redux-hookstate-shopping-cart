@@ -39,7 +39,7 @@ const Cart = () => {
     product => product.price.value * lodash.countBy(cartProductIds)[product.id]
   )
 
-  const totalPrice = productPriceList.reduce((firstValue, secondValue) => firstValue + secondValue, 0)
+  const totalPrice = lodash.sum(productPriceList)
 
   return (
     <div className="cart">
