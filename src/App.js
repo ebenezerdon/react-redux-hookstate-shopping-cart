@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Cart, Navbar, ProductCatalogue, Checkout } from './components'
+import { Cart, Navbar, Home, Checkout } from './components'
 import './styles/index.scss'
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/" element={<ProductCatalogue />} />
+          <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
