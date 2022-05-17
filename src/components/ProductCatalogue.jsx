@@ -1,9 +1,9 @@
-import './productCatalogue.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import _ from 'lodash'
-import { cartActions } from '../cart'
-import productList from '../../data/productList'
+import { cartActions } from '../data/cartSlice'
+import productList from '../data/productList'
+import '../styles/productCatalogue.scss'
 
 const ProductCatalogue = () => {
   // @ts-ignore
