@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import _ from 'lodash'
 import { cartActions } from '../data/cartSlice'
 import productList from '../data/productList'
-import '../styles/productCatalogue.scss'
+import '../styles/home.scss'
 
 const ProductCatalogue = () => {
   // @ts-ignore
