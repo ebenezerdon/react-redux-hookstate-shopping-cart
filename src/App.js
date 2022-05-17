@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Cart, Navbar, ProductCatalogue, Checkout } from './components'
 import './index.scss'
 
@@ -7,11 +7,11 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <div className="container">
-        <Switch>
-          <Route path="/" component={ProductCatalogue} exact />
-          <Route path="/cart" component={Cart} />
-          <Route path="/checkout" component={Checkout} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<ProductCatalogue />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
       </div>
     </BrowserRouter>
   )
