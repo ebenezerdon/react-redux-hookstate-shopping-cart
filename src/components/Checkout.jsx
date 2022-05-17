@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './checkout.scss'
+import '../styles/checkout.scss'
 
 const Checkout = () => {
   return (

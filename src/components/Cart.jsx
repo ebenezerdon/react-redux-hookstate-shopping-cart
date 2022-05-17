@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import lodash from 'lodash'
-import './cart.scss'
-import { cartActions } from './slice'
-import productList from '../../data/productList'
+import { cartActions } from '../data/cartSlice'
+import productList from '../data/productList'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
+import '../styles/cart.scss'
 
 const Cart = () => {
   // @ts-ignore
@@ -41,8 +41,6 @@ const Cart = () => {
   )
 
   const totalPrice = lodash.sum(productPriceList)
-
-  console.log(cartProducts[0].imageUrl.default)
 
   return (
     <div className="cart">
