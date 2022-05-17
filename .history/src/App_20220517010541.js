@@ -8,9 +8,9 @@ const App = () => {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/" element={<ProductCatalogue />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/" component={ProductCatalogue} exact />
+          <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
         </Routes>
       </div>
     </BrowserRouter>

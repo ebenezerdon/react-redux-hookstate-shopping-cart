@@ -6,7 +6,6 @@ import { cartActions } from '../cart'
 import productList from '../../data/productList'
 
 const ProductCatalogue = () => {
-  // @ts-ignore
   const cartState = useSelector((state) => state.cart)
   const dispatch = useDispatch()
 

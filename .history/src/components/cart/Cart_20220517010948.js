@@ -7,10 +7,9 @@ import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Cart = () => {
-  // @ts-ignore
   const { productIds: cartProductIds } = useSelector((state) => state.cart)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const history = useNavigate()
   const uniqueProductIds = new Set(cartProductIds)
 
   const cartProducts = productList.filter((product) => [...uniqueProductIds].includes(product.id))
@@ -32,8 +31,8 @@ const Cart = () => {
   }
 
   const clearAllItems = () => {
-    dispatch(cartActions.clearAllItems())
-    navigate('/checkout')
+    dispatch(cartActions.clearAllItems([]))
+    history.push('/checkout')
   }
 
   const productPriceList = cartProducts.map(
@@ -52,11 +51,7 @@ const Cart = () => {
           {cartProducts?.map((product) => (
             <div key={product.id} className="row">
               <div className="item-image col-lg-3 col-sm-2">
-                <img
-                  // @ts-ignore
-                  src={product.imageUrl}
-                  alt="product"
-                />
+                <img src={product.imageUrl.default} alt="product" />
               </div>
               <div className="item-info col-lg-7 col-sm-5">
                 <h4>{product.name}</h4>

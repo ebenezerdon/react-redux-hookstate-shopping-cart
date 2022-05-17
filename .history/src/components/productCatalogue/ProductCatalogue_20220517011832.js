@@ -6,7 +6,6 @@ import { cartActions } from '../cart'
 import productList from '../../data/productList'
 
 const ProductCatalogue = () => {
-  // @ts-ignore
   const cartState = useSelector((state) => state.cart)
   const dispatch = useDispatch()
 
@@ -31,12 +30,7 @@ const ProductCatalogue = () => {
           return (
             <div className="wrapper col-md-4" key={index}>
               <div className="card">
-                <img
-                  className="card-img-top center-block"
-                  // @ts-ignore
-                  src={product.imageUrl}
-                  alt="Card cap"
-                />
+                <img className="card-img-top center-block" src={`${product.imageUrl}`} alt="Card cap" />
                 <div className="card-body text-center">
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">
