@@ -4,6 +4,7 @@ import { cartActions } from '../data/cartSlice'
 import productList from '../data/productList'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
+import { getQuantityInCart } from '../helpers'
 import '../styles/cart.scss'
 
 const Cart = () => {
@@ -21,9 +22,6 @@ const Cart = () => {
 
   const removeFromCart = (productId) => {
     dispatch(cartActions.removeFromCart(productId))
-    if (lodash.countBy(cartProductIds)[productId] === 1) {
-      toast.info('Product has been removed from cart')
-    }
   }
 
   const clearInCart = (productId) => {
@@ -49,30 +47,33 @@ const Cart = () => {
           <h3 className="header">Cart ({cartProducts.length} items)</h3>
           {cartProducts?.map((product) => (
             <div key={product.id} className="row">
-              <div className="item-image col-lg-3 col-sm-2">
+              <div className={styles.itemImage}>
                 <img
                   // @ts-ignore
                   src={product.imageUrl}
                   alt="product"
                 />
               </div>
-              <div className="item-info col-lg-7 col-sm-5">
+
+              <div className={styles.itemDetails}>
                 <h4>{product.name}</h4>
                 <p className="text-truncate">{product.detail}</p>
-                <button className="btn btn-primary me-md-2 remove-button" onClick={() => clearInCart(product.id)}>
+                <button className={styles.removeItemButton} onClick={() => clearInCart(product.id)}>
                   <i className="bi bi-trash-fill" /> Remove Item
                 </button>
               </div>
-              <div className="item-info col-lg-2 col-sm-3">
+
+              <div className={styles.itemQuantityAndPrice}>
                 <div className="qty-buttons">
-                  <button className="btn btn-primary qty-left" onClick={() => removeFromCart(product.id)}>
+                  <button className={styles.reduceQuantityButton} onClick={() => removeFromCart(product.id)}>
                     -
                   </button>
-                  <span>{lodash.countBy(cartProductIds)[product.id]}</span>
-                  <button className="btn btn-primary qty-right" onClick={() => addToCart(product.id)}>
+                  <span>{getQuantityInCart(cartProductIds, product.id)}</span>
+                  <button className={styles.increaseQuantityButton} onClick={() => addToCart(product.id)}>
                     +
                   </button>
                 </div>
+
                 <p className="item-price">
                   Price:
                   <span>
@@ -108,6 +109,15 @@ const Cart = () => {
       )}
     </div>
   )
+}
+
+const styles = {
+  itemImage: 'item-image col-lg-3 col-sm-2',
+  itemDetails: 'item-info col-lg-7 col-sm-5',
+  itemQuantityAndPrice: 'item-info col-lg-2 col-sm-3',
+  reduceQuantityButton: 'btn btn-primary qty-left',
+  increaseQuantityButton: 'btn btn-primary qty-right',
+  removeItemButton: 'btn btn-primary remove-button',
 }
 
 export default Cart
