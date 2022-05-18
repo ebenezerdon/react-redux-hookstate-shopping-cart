@@ -18,7 +18,12 @@ const Cart = () => {
           <h3 className="header">Items in cart</h3>
           {cartProductData?.map((product) => (
             <div key={product.id} className="row">
-              <img className="item-image" src={product.imageUrl} alt="product" />
+              <img
+                className="item-image"
+                // @ts-ignore
+                src={product.imageUrl}
+                alt="product"
+              />
 
               <div className="item-info">
                 <h4>{product.name}</h4>
