@@ -1,35 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
-import _ from 'lodash'
-import { cartActions } from '../data/cartSlice'
+import cartSlice from '../data/cartSlice'
 import productList from '../data/productList'
 import '../styles/home.scss'
 
 const ProductCatalogue = () => {
   // @ts-ignore
-  const cartState = useSelector((state) => state.cart)
+  const { cartProductIds } = useSelector((state) => state.cart)
+  const { addToCart, removeFromCart } = cartSlice.actions
   const dispatch = useDispatch()
-
-  const addToCart = (productId) => {
-    dispatch(cartActions.addToCart(productId))
-    if (!cartState.productIds.includes(productId)) {
-      toast.info('Product has been added to cart')
-    }
-  }
-
-  const removeFromCart = (productId) => {
-    dispatch(cartActions.removeFromCart(productId))
-    if (_.countBy(cartState.productIds)[productId] === 1) {
-      toast.info('Product has been removed from cart')
-    }
-  }
 
   return (
     <div className="container product-catalogue">
       <div className="row">
-        {productList.map((product, index) => {
+        {productList.map((product) => {
           return (
-            <div className="wrapper col-md-4" key={index}>
+            <div className="wrapper col-md-4" key={product.id}>
               <div className="card">
                 <img
                   className="card-img-top center-block"
@@ -37,30 +22,22 @@ const ProductCatalogue = () => {
                   src={product.imageUrl}
                   alt="Card cap"
                 />
+
                 <div className="card-body text-center">
                   <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">
-                    {product.price.symbol}
-                    {product.price.value}
-                  </p>
-                  <div className="qty-buttons">
-                    <button className="btn qty-right" onClick={() => removeFromCart(product.id)}>
-                      -
+                  <p className="card-text">${product.price}</p>
+
+                  {!cartProductIds.includes(product.id) && (
+                    <button className="btn btn-primary" onClick={() => dispatch(addToCart(product.id))}>
+                      Add to cart
                     </button>
-                    {cartState.productIds.includes(product.id) && (
-                      <button className="btn btn-primary cursor-default">
-                        {_.countBy(cartState.productIds)[product.id]} in cart
-                      </button>
-                    )}
-                    {!cartState.productIds.includes(product.id) && (
-                      <button className="btn btn-primary" onClick={() => addToCart(product.id)}>
-                        Add to cart
-                      </button>
-                    )}
-                    <button className="btn qty-left" onClick={() => addToCart(product.id)}>
-                      +
+                  )}
+
+                  {cartProductIds.includes(product.id) && (
+                    <button className="btn btn-primary" onClick={() => dispatch(removeFromCart(product.id))}>
+                      Remove from cart
                     </button>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>

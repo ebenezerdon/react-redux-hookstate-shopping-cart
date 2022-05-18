@@ -6,8 +6,7 @@ import '../styles/navbar.scss'
 
 const Navbar = () => {
   // @ts-ignore
-  const cartState = useSelector((state) => state.cart)
-  const noOfItemsInCart = new Set(cartState.productIds).size
+  const { cartProductIds } = useSelector((state) => state.cart)
 
   return (
     <nav className="navbar">
@@ -15,9 +14,9 @@ const Navbar = () => {
         <i className="bi bi-shop-window" />
       </NavLink>
 
-      <NavLink to="/cart" title="cart" className={({ isActive }) => `link ${isActive && 'selected'}`}>
+      <NavLink to="/cart" title="cart" className={({ isActive }) => `${isActive && 'selected'}`}>
         <i className="bi bi-cart3" />
-        <sup className="cart-number">{noOfItemsInCart}</sup>
+        <sup className="cart-number">{cartProductIds.length}</sup>
       </NavLink>
 
       <NavLink to="/" className={({ isActive }) => (isActive ? 'selected' : '')} title="products" end>
