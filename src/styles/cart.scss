@@ -8,26 +8,14 @@
       margin-top: 2.5rem;
     }
 
-    @media only screen and (max-width: 600px) {
-      padding: 3rem;
-    }
-
     .row {
       padding: 2rem 0;
       border-bottom: 2px solid #f0f0f0;
-
-      @media only screen and (max-width: 600px) {
-        padding-bottom: 0;
-      }
     }
 
     .item-image {
       width: 15rem;
       height: 15rem;
-
-      @media only screen and (max-width: 600px) {
-        margin: 0 auto;
-      }
 
       img {
         width: 100%;
@@ -38,47 +26,6 @@
 
     .item-info {
       margin-top: 1rem;
-
-      @media only screen and (max-width: 600px) {
-        &:last-child {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: row-reverse;
-        }
-
-        .qty-buttons {
-          position: relative;
-          bottom: 4.3rem;
-          right: 2rem;
-          margin-bottom: 0;
-        }
-
-        .remove-button {
-          margin-left: 2rem;
-          margin-top: 0;
-        }
-
-        .item-price {
-          font-size: 1.6rem;
-          color: #000000;
-          flex: 0.88;
-        }
-      }
-
-      @media only screen and (max-width: 426px) {
-        .remove-button {
-          margin-left: 0;
-        }
-
-        .qty-buttons {
-          right: 0;
-        }
-
-        .item-price {
-          flex: 1;
-        }
-      }
     }
 
     .qty-buttons {
@@ -144,11 +91,6 @@
     .btn {
       border-radius: unset;
       padding: 0.6rem 5rem;
-    }
-
-    @media only screen and (max-width: 603px) {
-      padding: 4rem 0;
-      width: 100%;
     }
   }
 }

@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Cart, Navbar, Home, Checkout } from './components'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Cart from './components/Cart'
 import './styles/index.scss'
 
 const App = () => {
@@ -10,7 +12,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
     </BrowserRouter>
