@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import 'react-toastify/dist/ReactToastify.css'
 import '../styles/navbar.scss'
 
 const Navbar = () => {
