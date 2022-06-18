@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import cartSlice from '../data/cartSlice'
-import productList from '../data/productList'
+import productList from '../data/productList.json'
 import '../styles/home.scss'
 
 const ProductCatalogue = () => {
@@ -12,7 +12,7 @@ const ProductCatalogue = () => {
   return (
     <div className="container product-catalogue">
       <div className="row">
-        {productList.map((product) => {
+        {productList.products.map((product) => {
           return (
             <div className="wrapper col-md-4" key={product.id}>
               <div className="card">
