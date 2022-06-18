@@ -1,12 +1,12 @@
+// @ts-nocheck
 import { useDispatch, useSelector } from 'react-redux'
 import cartSlice from '../data/cartSlice'
-import productList from '../data/productList'
+import productList from '../data/productList.json'
 import '../styles/cart.scss'
 
 const Cart = () => {
-  // @ts-ignore
   const { cartProductIds } = useSelector((state) => state.cart)
-  const cartProductData = productList.filter((product) => cartProductIds.includes(product.id))
+  const cartProductData = productList.products.filter((product) => cartProductIds.includes(product.id))
 
   const { removeFromCart, clearAllItems } = cartSlice.actions
   const dispatch = useDispatch()
@@ -18,12 +18,7 @@ const Cart = () => {
           <h3 className="header">Items in cart</h3>
           {cartProductData?.map((product) => (
             <div key={product.id} className="row">
-              <img
-                className="item-image"
-                // @ts-ignore
-                src={product.imageUrl}
-                alt="product"
-              />
+              <img className="item-image" src={product.imageUrl} alt="product" />
 
               <div className="item-info">
                 <h4>{product.name}</h4>
