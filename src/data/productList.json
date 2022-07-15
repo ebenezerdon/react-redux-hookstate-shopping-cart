@@ -2,87 +2,87 @@
   "products": [
     {
       "id": "1",
-      "name": "Fashion Leather Hand Bag",
-      "detail": "It is made of high quality materials, durable enough for your daily wearing",
+      "name": "Springs Robot",
+      "detail": "Super Springs Robot",
       "price": 70,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels1.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot1.png?raw=true"
     },
     {
       "id": "2",
-      "name": "Ladies Trendy Mini Hand Bag",
-      "detail": "Crafted with a premium leather and featuring top design that stand the test of time",
+      "name": "Sergeant Robot",
+      "detail": "Super Sergeant Robot",
       "price": 129,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels2.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot2.png?raw=true"
     },
     {
       "id": "3",
-      "name": "HOT Mens Formal Leather Shoes",
-      "detail": "Keep your cool and update your footwear collection with this classic, versatile design",
+      "name": "River Robot",
+      "detail": "Super River Robot",
       "price": 91,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels3.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot3.png?raw=true"
     },
     {
       "id": "4",
-      "name": "Female High-Waist Skinny Jeans Trouser",
-      "detail": "This remarkable styled Jeans is a must have for every lady, it goes for all colors of tops. Its stylish and remarkable.",
+      "name": "Rex Robot",
+      "detail": "Super Rex Robot",
       "price": 47,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels4.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot4.png?raw=true"
     },
     {
       "id": "5",
-      "name": "Blue Suit For Executive Men",
-      "detail": "Made from high quality fabric to suite all your occasion 100% cotton.",
+      "name": "Portman Robot",
+      "detail": "Super Portman Robot",
       "price": 95,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels5.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot5.png?raw=true"
     },
     {
       "id": "6",
-      "name": "Crocodile Pattern Office Women Bag",
-      "detail": "This is a stylish hand bag, We designed this portable bag to make it easier for women to carry personal items when they go out",
+      "name": "Levi Robot",
+      "detail": "Super Levi Robot",
       "price": 89,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels6.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot6.png?raw=true"
     },
     {
       "id": "7",
-      "name": "High Quality Female Royal Heel Shoes",
-      "detail": "Its easy to wear and maintain. It is carefully made from genuine quality material that guarantees its durability",
+      "name": "Fred Robot",
+      "detail": "Super Fred Robot",
       "price": 45,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels7.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot7.png?raw=true"
     },
     {
       "id": "8",
-      "name": "Women Formal Crop Blazer - Grey",
-      "detail": "Produced from best quality cotton fabric, it is a necessity in every lady's wardrobe",
+      "name": "Elton Robot",
+      "detail": "Super Elton Robot",
       "price": 12,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels8.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot8.png?raw=true"
     },
     {
       "id": "9",
-      "name": "Classy Ladies Trending Bum Short",
-      "detail": "This comfortable short for queens goes for both formal or casual outfit, and party wear",
+      "name": "Eileen Robot",
+      "detail": "Super Eileen Robot",
       "price": 39,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels9.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot9.png?raw=true"
     },
     {
       "id": "10",
-      "name": "Elegant Long Women Palazzo Pant",
-      "detail": "This is a stretchy palazzo trouser made with Lycra material that allows air in and out. It is classy and can be worn with tops and or jackets",
+      "name": "Dolores Robot",
+      "detail": "Super Dolores Robot",
       "price": 102,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels10.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot10.png?raw=true"
     },
     {
       "id": "11",
-      "name": "New Short-sleeved Oversize T-shirt",
-      "detail": "It is very classy and suitable for every occasions. It cool, comfortable and gives an outstanding appearance.",
+      "name": "Dolly Robot",
+      "detail": "Super Dolly Robot",
       "price": 82,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels11.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot11.png?raw=true"
     },
     {
       "id": "12",
-      "name": "Baby Denim Shoes Soft Sole Prewalker",
-      "detail": "Lovely and Charming design, Keeps your baby's feet soft and warm, Makes your baby more lovely",
+      "name": "Bubbles Robot",
+      "detail": "Super Bubbles Robot",
       "price": 55,
-      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/pexels12.jpg?raw=true"
+      "imageUrl": "https://github.com/ebenezerdon/shopping-cart-images/blob/main/robot12.png?raw=true"
     }
   ]
 }
