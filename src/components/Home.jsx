@@ -1,10 +1,10 @@
+// @ts-nocheck
 import { useDispatch, useSelector } from 'react-redux'
 import cartSlice from '../data/cartSlice'
 import productList from '../data/productList.json'
 import '../styles/home.scss'
 
 const ProductCatalogue = () => {
-  // @ts-ignore
   const { cartProductIds } = useSelector((state) => state.cart)
   const { addToCart, removeFromCart } = cartSlice.actions
   const dispatch = useDispatch()
