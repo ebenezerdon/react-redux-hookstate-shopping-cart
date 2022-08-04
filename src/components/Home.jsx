@@ -4,7 +4,7 @@ import cartSlice from '../data/cartSlice'
 import productList from '../data/productList.json'
 import '../styles/home.scss'
 
-const ProductCatalogue = () => {
+const Home = () => {
   const { cartProductIds } = useSelector((state) => state.cart)
   const { addToCart, removeFromCart } = cartSlice.actions
   const dispatch = useDispatch()
@@ -48,4 +48,4 @@ const ProductCatalogue = () => {
   )
 }
 
-export default ProductCatalogue
+export default Home
