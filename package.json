@@ -4,6 +4,7 @@
   "private": true,
   "author": "Ebenezer Don",
   "dependencies": {
+    "@hookstate/core": "^4.0.1",
     "@reduxjs/toolkit": "^1.6.1",
     "node-sass": "^7.0.1",
     "react": "^18.1.0",

@@ -1,15 +1,12 @@
 // @ts-nocheck
-import { useDispatch, useSelector } from 'react-redux'
-import cartSlice from '../data/cartSlice'
+import { useHookstate } from '@hookstate/core'
 import productList from '../data/productList.json'
+import { cart, removeFromCart, clearAllItems } from '../data/store'
 import '../styles/cart.scss'
 
 const Cart = () => {
-  const { cartProductIds } = useSelector((state) => state.cart)
-  const cartProductData = productList.products.filter((product) => cartProductIds.includes(product.id))
-
-  const { removeFromCart, clearAllItems } = cartSlice.actions
-  const dispatch = useDispatch()
+  const { cartProductIds } = useHookstate(cart)
+  const cartProductData = productList.products.filter((product) => cartProductIds.get().includes(product.id))
 
   return (
     <div className="cart">
@@ -23,7 +20,7 @@ const Cart = () => {
               <div className="item-info">
                 <h4>{product.name}</h4>
                 <p className="text-truncate">{product.detail}</p>
-                <button className="btn btn-primary" onClick={() => dispatch(removeFromCart(product.id))}>
+                <button className="btn btn-primary" onClick={() => removeFromCart(product.id)}>
                   <i className="bi bi-trash-fill" /> Remove Item
                 </button>
               </div>
@@ -31,7 +28,7 @@ const Cart = () => {
           ))}
 
           <footer className="text-center">
-            <button onClick={() => dispatch(clearAllItems())} className="btn btn-primary">
+            <button onClick={() => clearAllItems()} className="btn btn-primary">
               CHECKOUT
             </button>
           </footer>

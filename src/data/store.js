@@ -1,10 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit'
-import cartSlice from './cartSlice'
+import { hookstate } from '@hookstate/core'
 
-const store = configureStore({
-  reducer: {
-    cart: cartSlice.reducer,
-  },
+export const cart = hookstate({
+  cartProductIds: [],
 })
 
-export default store
+export const addToCart = (id) => {
+  cart.cartProductIds.merge([id])
+}
+
+export const removeFromCart = (id) => {
+  const cartProductIds = cart.cartProductIds
+  cartProductIds.set(cartProductIds.get().filter((productId) => productId !== id))
+}
+
+export const clearAllItems = () => {
+  cart.cartProductIds.set([])
+}
